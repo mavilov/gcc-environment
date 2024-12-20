@@ -1,0 +1,18 @@
+{
+  "name": "GCC Development Container",
+  "image": "gcc:latest",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        // Sets up the default shell for the integrated terminal in VS Code
+        "terminal.integrated.shell.linux": "/bin/bash"
+      },    
+      "extensions": [
+        "ms-vscode.cpptools",       // C/C++ Intellisense
+        "ms-vscode.cmake-tools"     // CMake integration (if needed)
+      ]
+    }
+  },
+  "postCreateCommand": "apt-get update && apt-get install -y make gdb cmake && rm -rf /var/lib/apt/lists/*",
+  "remoteUser": "root"
+}
